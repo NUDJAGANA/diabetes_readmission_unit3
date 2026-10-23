@@ -1,0 +1,23 @@
+core.Microsoft*
+core.mongo*
+core.python*
+env.py
+__pycache__/
+*.py[cod]
+node_modules/
+.github/
+cloudinary_python.txt
+kaggle.json
+.venv/
+.venv
+
+data/raw/
+
+# Ignore raw data
+data/raw/
+
+# Ignore oversized processed feature matrices (>100MB)
+data/processed/X_train.csv
+data/processed/X_test.csv
+
+.ipynb_checkpoints/
