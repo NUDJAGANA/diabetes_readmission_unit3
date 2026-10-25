@@ -1,9 +1,12 @@
 
 ![alt text](image.png)
 
-## Live App
-
+## Live App (Heroku)
 [Open the Diabetes Hospital Readmission app](https://diabetes-readmission-unit3-d8498676dfdd.herokuapp.com/)
+
+## Live app (Streamlit Community Cloud)
+**[Open the Diabetes Hospital Readmission app](https://diabetesreadmissionunit3.streamlit.app/)**
+
 
 # 🏥 Diabetes Hospital Readmission Analysis and Prediction
 
@@ -126,7 +129,7 @@ Nadjat Djagana
 
 Junior Data Analyst | Python | SQL | Power BI | Data Visualisation | Machine Learning
 
-I am developing my skills in data analytics by working on practical projects that involve cleaning data, exploring patterns, building visualisations and communicating findings.
+I am developing my skills in data analytics by working on practical projects that involve cleaning data, exploring patterns, building visualisations and apps and communicating findings.
 
 This project is part of my journey towards becoming a professional data analyst.
 
