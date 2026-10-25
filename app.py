@@ -312,7 +312,6 @@ if app_mode == "📊 Population Dashboard":
     display_cols = [
             column
             for column in [
-                "encounter_id",
                 "age",
                 "admission_type_id",
                 "time_in_hospital",

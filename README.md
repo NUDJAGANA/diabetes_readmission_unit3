@@ -62,7 +62,7 @@ UCI lists the dataset under a [CC BY 4.0 licence](https://creativecommons.org/li
 
 ### Coverage and contents
 
-The source data covers hospital records from 130 US hospitals and integrated delivery networks between 1999 and 2008. It includes demographic, diagnosis, medication, laboratory, hospital-stay and previous-visit information. The source dataset contains 101,766 records. After the filtering and deduplication described in my ETL notebook, the processed file contains 69,990 rows and 47 columns, with one retained encounter per patient.
+The source data covers hospital records from 130 US hospitals and integrated delivery networks between 1999 and 2008. It includes demographic, diagnosis, medication, laboratory, hospital-stay and previous-visit information. The source dataset contains 101,766 records. After the filtering and deduplication described in my ETL notebook, the processed file contains 69,990 rows and 45 columns, with one retained encounter per patient. The patient and encounter identifier columns are removed before the processed file is shared.
 
 ### Limitations
 
@@ -70,13 +70,13 @@ This is historical US hospital data. It may not reflect current practice, other 
 
 The source data contains missing values. My ETL process handles some missing-value markers and fills selected categorical fields, but blank laboratory-result values remain in the processed file and need further review.
 
-The processed file retains unique encounter and patient numbers. These identifiers are excluded from the model features in the feature-engineering notebook, but remain in the published data file. Their necessity should be reviewed before further public sharing or use in dashboard exports.
+The ETL uses patient and encounter identifiers to deduplicate records, then removes both identifier columns from the shared processed CSV. The app scorecard and its CSV export also omit encounter identifiers. This reduces direct identifier exposure but does not, by itself, establish that the data is anonymous.
 
 The findings describe patterns in observational records. They do not establish that a feature causes readmission and should not be used to make decisions about individual patients.
 
 ### Data cleaning review
 
-The data-cleaning notebook replaces ? with missing values and fills selected fields, including race, medical specialty, and diagnosis fields, with Unknown. Missing results remain in max_glu_serum and A1Cresult; therefore, the README should not say that all rows with missing values were removed. The cleaned dataset also retains patient_nbr and encounter_id. These identifiers are excluded from the model features, but they remain in the processed file and need careful handling when sharing or displaying data.
+The data-cleaning notebook replaces ? with missing values and fills selected fields, including race, medical specialty, and diagnosis fields, with Unknown. Missing results remain in max_glu_serum and A1Cresult; therefore, the README should not say that all rows with missing values were removed. The ETL uses patient_nbr for deduplication, then removes patient_nbr and encounter_id from the processed CSV. The app scorecard and its CSV export also omit encounter identifiers.
 
 The cleaning process removes duplicate patients after using patient_nbr, excludes selected discharge-disposition records, and drops weight, payer_code, examide, and citoglipton. These choices can affect which patients and information are represented in the analysis. I will document their reasons and limitations, and check that any future changes to cleaning are reflected consistently in the analyses, model, visualisations, and dashboard.
 

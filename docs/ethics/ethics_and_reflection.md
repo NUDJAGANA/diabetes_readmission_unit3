@@ -10,9 +10,7 @@ The dataset is the UCI *Diabetes 130-US Hospitals for Years 1999–2008* dataset
 
 ### Privacy and data handling
 
-The project data includes fields named `patient_nbr` and `encounter_id`. The encounter table in the app displays encounter identifiers, and the CSV download includes them. Although the project review did not attempt to identify anyone, identifiers and combinations of clinical details can create privacy or linkage risks.
-
-For a public-facing version, encounter identifiers should be removed from displayed tables and downloads unless there is a documented need and appropriate permission to publish them. This is a recommended safeguard; it should not be described as completed unless the app and its downloaded file have actually been changed and checked.
+The source dataset includes fields named `patient_nbr` and `encounter_id`. The ETL uses these fields to deduplicate records, then removes them from the shared processed CSV. The app scorecard and its CSV download omit the encounter identifier. This reduces direct identifier exposure, but combinations of clinical details may still create linkage risks; removing these fields does not prove that the remaining data is anonymous.
 
 The project review did not verify the dataset’s consent or ethics-review history, or conduct a re-identification assessment. The ICO explains that identifiability can depend on whether information can be linked with other reasonably available data. [ICO guidance on identifiability and anonymisation](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/anonymisation/how-do-we-ensure-anonymisation-is-effective/)
 
@@ -42,7 +40,7 @@ The model identifies associations in historical data, such as patterns in prior 
 
 3. **The dashboard explains patterns without claiming causation.** Readmission patterns are presented as associations in historical data, with a note that they do not show that a factor causes readmission.
 
-The app and README should continue to make the dataset source, time period, limitations and intended educational use clear. Encounter identifiers remain a privacy consideration until their removal from public displays and downloads is confirmed.
+The app and README should continue to make the dataset source, time period, limitations and intended educational use clear. Identifier removal should be rechecked whenever the ETL, app display or CSV export changes.
 
 ## Practical reflection
 
@@ -52,7 +50,7 @@ I checked the simulator using its default inputs. It returned an estimated proba
 
 An external reviewer said the app’s purpose was clear without explanation. They were able to use the age filter, understand the readmission chart and table, use the filters and download the CSV. I also checked the prediction simulator separately; the reviewer did not test that feature.
 
-The model results and subgroup differences showed me why a prediction should be accompanied by clear limitations and why overall performance alone is not enough. If I continue the project, I would investigate subgroup performance further, remove encounter identifiers from public-facing outputs unless their publication is justified, and seek appropriate review before any real-world use.
+The model results and subgroup differences showed me why a prediction should be accompanied by clear limitations and why overall performance alone is not enough. If I continue the project, I would investigate subgroup performance further, review whether any remaining combinations of fields could create linkage risks, and seek appropriate review before any real-world use.
 
 ## Maintenance and future evaluation
 
