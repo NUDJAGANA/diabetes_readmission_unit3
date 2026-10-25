@@ -74,11 +74,10 @@ The ETL uses patient and encounter identifiers to deduplicate records, then remo
 
 The findings describe patterns in observational records. They do not establish that a feature causes readmission and should not be used to make decisions about individual patients.
 
+
 ### Data cleaning review
 
-The data-cleaning notebook replaces ? with missing values and fills selected fields, including race, medical specialty, and diagnosis fields, with Unknown. Missing results remain in max_glu_serum and A1Cresult; therefore, the README should not say that all rows with missing values were removed. The ETL uses patient_nbr for deduplication, then removes patient_nbr and encounter_id from the processed CSV. The app scorecard and its CSV export also omit encounter identifiers.
-
-The cleaning process removes duplicate patients after using patient_nbr, excludes selected discharge-disposition records, and drops weight, payer_code, examide, and citoglipton. These choices can affect which patients and information are represented in the analysis. I will document their reasons and limitations, and check that any future changes to cleaning are reflected consistently in the analyses, model, visualisations, and dashboard.
+During cleaning, `?` markers were treated as missing values, and selected categorical fields were filled with `Unknown`. Missing values remain in `max_glu_serum` and `A1Cresult`. The ETL also excludes selected discharge-disposition records and removes `weight`, `payer_code`, `examide` and `citoglipton`. These decisions affect which records and variables are included in the analysis; the ETL notebook describes the process.
 
 ### Prediction feature review
 
@@ -94,6 +93,12 @@ I also compared recall and precision across age, race and gender groups in the t
 An external reviewer opened the app and understood its purpose without explanation. They used the age filter and saw the dashboard update, understood the readmission chart and table, used the filters, and downloaded the CSV. They reported that these parts were clear.
 
 Separately, I checked the patient simulator using its default inputs. It displayed an estimated probability of 59.7%, above the model’s validation-selected threshold of 0.52. This check confirms that the simulator returned an output for that example; it does not establish prediction accuracy for an individual patient.
+
+## Communicating findings to different audiences
+
+The dashboard uses a donut chart to show the distribution of encounters across age groups and a bar chart to compare 30-day readmission rates across groups based on prior inpatient visits. The bar chart shows percentages, with encounter counts available on hover, and a supporting table for comparison. Plain-language labels and explanations help users interpret the charts. The displayed patterns describe associations in historical data; they do not show that prior visits cause readmission.
+
+For a general audience, the dashboard focuses on readable charts, clear filters, and short explanations. For a technical audience, the README and linked notebooks provide the analysis methods and model performance results. The model’s limitations and educational purpose are stated alongside those results.
 
 ## Ethical Practice and Practical Reflection 
 
@@ -113,6 +118,25 @@ The practical challenges, changes, feedback, lessons learned and future improvem
 
 
 ### AI assistance:
- ChatGPT/Codex helped review the project, revise documentation, prepare the workflow diagram and troubleshoot the prediction app and model. I reviewed the suggested changes and I am responsible for understanding and verifying the work I submit.
+ ChatGPT/Codex helped review the project, revise documentation, prepare the workflow diagram. I used AI tools for technical guidance and troubleshooting, including help understanding errors and debugging issues during development. I carried out the project work, reviewed suggestions before using them, and remain responsible for the code, analysis, results and documentation submitted.
 
+
+### Author
+Nadjat Djagana
+
+Junior Data Analyst | Python | SQL | Power BI | Data Visualisation | Machine Learning
+
+I am developing my skills in data analytics by working on practical projects that involve cleaning data, exploring patterns, building visualisations and communicating findings.
+
+This project is part of my journey towards becoming a professional data analyst.
+
+### References
+
+- [UCI Machine Learning Repository – Diabetes 130-US Hospitals for Years 1999–2008](https://archive.ics.uci.edu/dataset/296/diabetes+130+us+hospitals+for+years+1999+2008)
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- [Scikit-learn Documentation](https://scikit-learn.org/stable/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [XGBoost Documentation](https://xgboost.readthedocs.io/en/stable/)
+
+Thank you for taking the time to explore my project!
 
