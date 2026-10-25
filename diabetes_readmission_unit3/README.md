@@ -1,6 +1,9 @@
 
 ![alt text](image.png)
 
+## Live App
+
+[Open the Diabetes Hospital Readmission app](https://diabetes-readmission-unit3-d8498676dfdd.herokuapp.com/)
 
 # 🏥 Diabetes Hospital Readmission Analysis and Prediction
 
