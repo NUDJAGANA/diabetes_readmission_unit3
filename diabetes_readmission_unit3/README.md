@@ -39,6 +39,7 @@ These tests examine associations or differences in the historical dataset. They 
 - **H3 — Medication changes:** A recorded diabetes medication change will be associated with 30-day readmission. The saved chi-square test output reports a statistically significant association (p < 0.001), with a very small effect size (Cramér’s V = 0.0145).
 
 A low p-value does not by itself show that an effect is large, clinically important or useful for prediction. These results do not establish causation or the accuracy of predictions for an individual.
+
 ## Success criteria
 
 - The dashboard answers the main question using clearly labelled measures and charts.
@@ -85,14 +86,16 @@ The six-input model achieved ROC-AUC 0.583, precision 0.120 and recall 0.413 on 
 
 I also compared recall and precision across age, race and gender groups in the test data. Results varied between groups. For example, recall ranged from 0.273 for records with race recorded as Unknown (350 records) to 0.545 for records in the Other race category (230 records). Female and male recall was 0.429 and 0.395, respectively. Group sizes differ, and some are small, so these figures do not establish that the model is fair or biased. They show why performance should be monitored across groups and why this model must not be used to make decisions about individual patients.
 
-### Usability review and prediction check
+ ### Usability review and prediction check
 
 An external reviewer opened the app and understood its purpose without explanation. They used the age filter and saw the dashboard update, understood the readmission chart and table, used the filters, and downloaded the CSV. They reported that these parts were clear.
 
 Separately, I checked the patient simulator using its default inputs. It displayed an estimated probability of 59.7%, above the model’s validation-selected threshold of 0.52. This check confirms that the simulator returned an output for that example; it does not establish prediction accuracy for an individual patient.
-## Ethical Practice and Practical Reflection (LO1 and LO3.2)
 
-The detailed report discusses ethical, privacy, legal and social considerations, along with the practical reflection: [Ethical Practice and Practical Reflection](docs/ethics/ethics_and_reflection.md).
+## Ethical Practice and Practical Reflection 
+
+The detailed report covers ethical, privacy, legal and social considerations, along with the practical reflection: 
+* Read the full report in [Ethical Practice and Practical Reflection](docs/ethics/ethics_and_reflection.md)
 
 ## Project Plan and Workflow (LO3.1)
 
@@ -100,6 +103,13 @@ The detailed report discusses ethical, privacy, legal and social considerations,
 
 ![Diabetes Hospital Readmission project workflow](docs/project_workflow.svg)
 
+
 ## Project Reflection
 
-The report above records the practical challenges, changes, feedback, lessons learned and future improvements. The model results, fairness audit and usability feedback are documented in the relevant sections of this README.
+The practical challenges, changes, feedback, lessons learned and future improvements are documented in the [Ethical Practice and Practical Reflection report](docs/ethics/ethics_and_reflection.md).
+
+
+### AI assistance:
+ ChatGPT/Codex helped review the project, revise documentation, prepare the workflow diagram and troubleshoot the prediction app and model. I reviewed the suggested changes and I am responsible for understanding and verifying the work I submit.
+
+
