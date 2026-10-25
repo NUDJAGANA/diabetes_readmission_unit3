@@ -114,6 +114,9 @@ The detailed report covers ethical, privacy, legal and social considerations, al
 
 ![Diabetes Hospital Readmission project workflow](docs/project_workflow.svg)
 
+[Project board](https://github.com/users/NUDJAGANA/projects/12/views/1)
+
+
 
 ## Project Reflection
 
